@@ -10,11 +10,19 @@ import SwiftUI
 @main
 struct SwedisherApp: App {
     @AppStorage("darkModeEnabled") private var darkModeEnabled = false
+    @AppStorage(WelcomeStorage.skipWelcomeKey) private var skipWelcomeScreen = false
+    @State private var showMainApp = false
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .preferredColorScheme(darkModeEnabled ? .dark : .light)
+            Group {
+                if skipWelcomeScreen || showMainApp {
+                    ContentView()
+                } else {
+                    LogoView(onStart: { showMainApp = true })
+                }
+            }
+            .preferredColorScheme(darkModeEnabled ? .dark : .light)
         }
     }
 }

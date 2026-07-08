@@ -93,7 +93,7 @@ struct AntonymsView: View {
                     Spacer()
                     Text("Antonyms")
                         .font(.system(size: 28, weight: .bold, design: .rounded))
-                        .foregroundColor(.blue)
+                        .foregroundColor(.appRed)
                     Spacer()
                 }
                 
@@ -106,7 +106,7 @@ struct AntonymsView: View {
                         }) {
                             Text("Reset")
                                 .font(.body)
-                                .foregroundColor(.blue)
+                                .foregroundColor(.appRed)
                         }
                     }
                 }
@@ -189,7 +189,7 @@ struct AntonymsView: View {
                                             .renderingMode(.template)
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 28, height: 28)
-                                            .foregroundColor(audioManager.isAudioReady ? .blue : .gray)
+                                            .foregroundColor(audioManager.isAudioReady ? .appRed : .gray)
                                             .padding(8)
                                     }
                                     .disabled(!audioManager.isAudioReady || audioManager.isPlaying)
@@ -233,7 +233,7 @@ struct AntonymsView: View {
                                         }) {
                                             Text("English here")
                                                 .font(.system(size: 14, weight: .medium))
-                                                .foregroundColor(.blue)
+                                                .foregroundColor(.appRed)
                                         }
                                     } else {
                                         // Show translation - blur answer word only if not answered yet
@@ -314,7 +314,7 @@ struct AntonymsView: View {
                                             .renderingMode(.template)
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 24, height: 24)
-                                            .foregroundColor(.blue)
+                                            .foregroundColor(.appRed)
                                             .transition(.opacity)
                                     }
                                     Text("Choose an answer")
@@ -338,7 +338,7 @@ struct AntonymsView: View {
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 16)
-                            .background((selectedAnswer != nil && sessionQuestions < 20) ? Color.blue : Color.gray)
+                            .background((selectedAnswer != nil && sessionQuestions < 20) ? Color.appRed : Color.gray)
                             .cornerRadius(12)
                     }
                     .disabled(selectedAnswer == nil || sessionQuestions >= 20)
@@ -352,10 +352,12 @@ struct AntonymsView: View {
                     
                     Image("practice2")
                         .resizable()
+                        .renderingMode(.template)
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 80, height: 80)
+                        .foregroundColor(.appRed)
                     
-                    (Text("Learn to pair opposites like ") + Text("hot").foregroundColor(.blue).fontWeight(.bold) + Text(" and ") + Text("cold").foregroundColor(.blue).fontWeight(.bold) + Text(". find the words to describe contrasting and objects. ") + Text("Lycka till!").foregroundColor(.blue).fontWeight(.bold))
+                    (Text("Learn to pair opposites like ") + Text("hot").foregroundColor(.appRed).fontWeight(.bold) + Text(" and ") + Text("cold").foregroundColor(.appRed).fontWeight(.bold) + Text(". find the words to describe contrasting and objects. ") + Text("Lycka till!").foregroundColor(.appRed).fontWeight(.bold))
                         .font(.body)
                         .foregroundColor(.primary)
                         .multilineTextAlignment(.center)
@@ -372,7 +374,7 @@ struct AntonymsView: View {
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 16)
-                            .background(Color.blue)
+                            .background(Color.appRed)
                             .cornerRadius(12)
                     }
                     .padding(.horizontal, 40)
@@ -382,10 +384,10 @@ struct AntonymsView: View {
                     }) {
                         Text("Previous practices")
                             .font(.headline)
-                            .foregroundColor(.blue)
+                            .foregroundColor(.appRed)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 16)
-                            .background(Color.blue.opacity(0.1))
+                            .background(Color.appRed.opacity(0.1))
                             .cornerRadius(12)
                     }
                     .padding(.horizontal, 60)
@@ -691,7 +693,7 @@ struct AntonymsView: View {
             // Find the range of the blank/answer and apply styling
             if let range = attributedString.range(of: blankOrAnswer) {
                 var container = AttributeContainer()
-                container.foregroundColor = .blue
+                container.foregroundColor = .appRed
                 container.font = .system(size: 20, weight: .bold)
                 attributedString[range].setAttributes(container)
             }

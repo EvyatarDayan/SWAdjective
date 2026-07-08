@@ -145,7 +145,7 @@ struct HistoryView: View {
                         Spacer()
                         Text("Practice History")
                             .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.blue)
+                            .foregroundColor(.appRed)
                         Spacer()
                     }
                     .padding(.horizontal, 20)
@@ -156,7 +156,7 @@ struct HistoryView: View {
                         Spacer()
                         Text("Test History")
                             .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.blue)
+                            .foregroundColor(.appRed)
                         Spacer()
                     }
                     .padding(.horizontal, 20)
@@ -167,7 +167,7 @@ struct HistoryView: View {
                         Spacer()
                         Text("History")
                             .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.blue)
+                            .foregroundColor(.appRed)
                         Spacer()
                     }
                     .padding(.horizontal, 20)
@@ -184,7 +184,7 @@ struct HistoryView: View {
                         }) {
                             Text("Close")
                                 .font(.body)
-                                .foregroundColor(.blue)
+                                .foregroundColor(.appRed)
                         }
                     }
                     .padding(.horizontal, 25)
@@ -226,10 +226,11 @@ struct HistoryView: View {
         VStack(spacing: 20) {
             Image(systemName: "chart.bar.doc.horizontal")
                 .font(.system(size: 60))
-                .foregroundColor(.secondary)
+                .foregroundColor(.appRed)
             Text("No History Yet")
                 .font(.title2)
                 .fontWeight(.semibold)
+                .foregroundColor(.appRed)
             Text(emptyStateMessage)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
@@ -326,7 +327,7 @@ struct HistoryResultRow: View {
                     }
                     .font(isLargeScreen ? .subheadline : .body)
                     .fontWeight(.medium)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.appRed)
                     Text("•")
                         .foregroundColor(.secondary)
                 }

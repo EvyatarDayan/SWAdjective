@@ -39,7 +39,7 @@ struct SettingsView: View {
                     Spacer()
                     Text("Settings")
                         .font(.system(size: 28, weight: .bold, design: .rounded))
-                        .foregroundColor(.blue)
+                        .foregroundColor(.appRed)
                     Spacer()
                 }
             }
@@ -55,7 +55,7 @@ struct SettingsView: View {
                 SettingsSection(header: "MODE") {
                     SettingsRow(
                         icon: "moon.fill",
-                        iconColor: .purple,
+                        iconColor: .appRed,
                         title: "Dark Mode",
                         subtitle: "Enable/Disable dark mode",
                         accessory: .toggle(isOn: $darkModeEnabled)
@@ -66,7 +66,7 @@ struct SettingsView: View {
                 SettingsSection(header: "SCHEDULE") {
                     SettingsRow(
                         icon: "clock",
-                        iconColor: .orange,
+                        iconColor: .appRed,
                         title: "Schedule Notifications",
                         subtitle: notificationSubtitle,
                         accessory: .chevron(action: {
@@ -79,7 +79,7 @@ struct SettingsView: View {
                 SettingsSection(header: "LEARNING") {
                     SettingsRow(
                         icon: "lightbulb.fill",
-                        iconColor: .yellow,
+                        iconColor: .appRed,
                         title: "Learning Tips",
                         subtitle: "Effective learning strategies",
                         accessory: .chevron(action: {
@@ -92,7 +92,7 @@ struct SettingsView: View {
                 SettingsSection(header: "SUPPORT") {
                     SettingsRow(
                         icon: "questionmark.circle.fill",
-                        iconColor: .blue,
+                        iconColor: .appRed,
                         title: "Help & Support",
                         subtitle: "Get help and contact support",
                         accessory: .chevron(action: {
@@ -102,7 +102,7 @@ struct SettingsView: View {
                     
                     SettingsRow(
                         icon: "doc.text.fill",
-                        iconColor: .blue,
+                        iconColor: .appRed,
                         title: "Terms & Privacy",
                         subtitle: "View terms and privacy policy",
                         accessory: .chevron(action: {
@@ -112,7 +112,7 @@ struct SettingsView: View {
                     
                     SettingsRow(
                         icon: "info.circle.fill",
-                        iconColor: .blue,
+                        iconColor: .appRed,
                         title: "About",
                         subtitle: "App version and information",
                         accessory: .chevron(action: {
@@ -125,7 +125,7 @@ struct SettingsView: View {
                 SettingsSection(header: "CACHE") {
                     SettingsRow(
                         icon: "clock.arrow.circlepath",
-                        iconColor: .red,
+                        iconColor: .appRed,
                         title: "Clear History",
                         subtitle: "Delete all history records",
                         accessory: .button(
@@ -308,6 +308,7 @@ struct NotificationSettingsModal: View {
                     Toggle("Daily reminder", isOn: dailyReminderBinding)
                 } header: {
                     Text("Reminder")
+                        .foregroundColor(.appRed)
                 } footer: {
                     Text("Get a daily notification to practice Swedish")
                 }
@@ -317,12 +318,18 @@ struct NotificationSettingsModal: View {
                         DatePicker("Time", selection: $notificationManager.notificationTime, displayedComponents: .hourAndMinute)
                     } header: {
                         Text("Notification time")
+                            .foregroundColor(.appRed)
                     }
                 }
             }
-            .navigationTitle("Notifications")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Notifications")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.appRed)
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
                         dismiss()
@@ -451,6 +458,7 @@ struct LearningTipsView: View {
                     Text("Learning Tips")
                         .font(.headline)
                         .fontWeight(.semibold)
+                        .foregroundColor(.appRed)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
@@ -483,7 +491,7 @@ struct TipSection: View {
             Text(number)
                 .font(.title2)
                 .fontWeight(.bold)
-                .foregroundColor(.blue)
+                .foregroundColor(.appRed)
                 .frame(width: 30)
             
             VStack(alignment: .leading, spacing: 8) {
@@ -620,6 +628,7 @@ struct TermsPrivacyView: View {
                     Text("Terms & Privacy")
                         .font(.headline)
                         .fontWeight(.semibold)
+                        .foregroundColor(.appRed)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
@@ -646,13 +655,13 @@ struct TermsPrivacyView: View {
     
     Last Updated: January 26, 2026
     
-    Welcome to SWAdjective. These Terms of Use ("Terms") govern your access to and use of the SWAdjective mobile application ("App"). By using the App, you agree to be bound by these Terms.
+    Welcome to SW-Adjective. These Terms of Use ("Terms") govern your access to and use of the SW-Adjective mobile application ("App"). By using the App, you agree to be bound by these Terms.
     
     1. ACCEPTANCE OF TERMS
-    By downloading, installing, or using SWAdjective, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy.
+    By downloading, installing, or using SW-Adjective, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy.
     
     2. DESCRIPTION OF SERVICE
-    SWAdjective is a mobile application designed to help you practice Swedish adjectives. The App allows you to:
+    SW-Adjective is a mobile application designed to help you practice Swedish adjectives. The App allows you to:
     - Practice adjective agreement (En, Ett, and Plural forms)
     - Practice adjective comparison (positive, comparative, superlative — e.g. better, bigger, best)
     - Practice antonyms (opposite words)
@@ -672,10 +681,10 @@ struct TermsPrivacyView: View {
     - Use automated systems to access the App
     
     5. INTELLECTUAL PROPERTY
-    The App and its content, including but not limited to text, graphics, logos, and software, are the property of SWAdjective and are protected by copyright and other intellectual property laws.
+    The App and its content, including but not limited to text, graphics, logos, and software, are the property of SW-Adjective and are protected by copyright and other intellectual property laws.
     
     6. LIMITATION OF LIABILITY
-    SWAdjective is provided "as is" without warranties of any kind. We do not guarantee that the App will be error-free or uninterrupted. In no event shall SWAdjective be liable for any indirect, incidental, or consequential damages.
+    SW-Adjective is provided "as is" without warranties of any kind. We do not guarantee that the App will be error-free or uninterrupted. In no event shall SW-Adjective be liable for any indirect, incidental, or consequential damages.
     
     7. MODIFICATIONS TO TERMS
     We reserve the right to modify these Terms at any time. Your continued use of the App after any changes constitutes acceptance of the modified Terms.
@@ -689,10 +698,10 @@ struct TermsPrivacyView: View {
     
     Last Updated: January 26, 2026
     
-    At SWAdjective, we are committed to protecting your privacy. This Privacy Policy explains how we handle your information when you use our mobile application.
+    At SW-Adjective, we are committed to protecting your privacy. This Privacy Policy explains how we handle your information when you use our mobile application.
     
     1. NO DATA COLLECTION
-    SWAdjective does not collect, transmit, or store any of your personal information on external servers. We do not collect:
+    SW-Adjective does not collect, transmit, or store any of your personal information on external servers. We do not collect:
     - Usage analytics
     - Device information
     - Location data
@@ -741,13 +750,13 @@ struct TermsPrivacyView: View {
     Last Updated: January 26, 2026
     
     1. NO WARRANTY
-    SWAdjective is provided "as is" and "as available" without any warranties, express or implied. We do not guarantee that the App will be error-free, uninterrupted, or free from defects.
+    SW-Adjective is provided "as is" and "as available" without any warranties, express or implied. We do not guarantee that the App will be error-free, uninterrupted, or free from defects.
     
     2. ACCURACY OF CONTENT
     While we strive to ensure accurate Swedish adjective forms and translations, we cannot guarantee the accuracy of all content. Users are responsible for verifying information and should consult additional resources for comprehensive learning.
     
     3. LIMITATION OF LIABILITY
-    To the fullest extent permitted by law, SWAdjective shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data or use, arising out of or in connection with the use of the App.
+    To the fullest extent permitted by law, SW-Adjective shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data or use, arising out of or in connection with the use of the App.
     
     4. USER RESPONSIBILITY
     Users are solely responsible for:
@@ -765,7 +774,7 @@ struct TermsPrivacyView: View {
     The App is for educational and learning purposes only. It does not constitute professional language instruction or certification. Users should consult with qualified language instructors for formal education.
     
     8. ACCEPTANCE
-    By using SWAdjective, you acknowledge that you have read, understood, and agree to this Disclaimer.
+    By using SW-Adjective, you acknowledge that you have read, understood, and agree to this Disclaimer.
     """
 }
 
@@ -876,6 +885,7 @@ struct HelpSupportView: View {
                             Text("Contact us")
                                 .font(.headline)
                                 .fontWeight(.semibold)
+                                .foregroundColor(.appRed)
                         }
                     }
                 } else {
@@ -886,11 +896,12 @@ struct HelpSupportView: View {
                                 Text("We'd love to hear from you!")
                                     .font(.title3)
                                     .fontWeight(.bold)
+                                    .foregroundColor(.appRed)
                                 
                                 Text("Whether you have questions about")
                                     .font(.body)
                                 
-                                Text("SWAdjective, feedback, or just want to say hi,")
+                                Text("SW-Adjective, feedback, or just want to say hi,")
                                     .font(.body)
                                 
                                 Text("feel free to reach out.")
@@ -904,7 +915,7 @@ struct HelpSupportView: View {
                                 Text("Email: abashelariprod@gmail.com")
                                     .font(.subheadline)
                                 
-                                Text("Website: https://abashelariprod.wordpress.com")
+                                Text("Website: https://abashelari.com")
                                     .font(.subheadline)
                                 
                                 Divider()
@@ -929,7 +940,7 @@ struct HelpSupportView: View {
                                     .foregroundColor(.white)
                                     .frame(maxWidth: .infinity)
                                     .frame(height: 50)
-                                    .background(Color.green)
+                                    .background(Color.appRed)
                                     .cornerRadius(12)
                                     .padding(.horizontal, 32)
                             }
@@ -949,6 +960,7 @@ struct HelpSupportView: View {
                             Text("Help & Support")
                                 .font(.headline)
                                 .fontWeight(.semibold)
+                                .foregroundColor(.appRed)
                         }
                     }
                 }
@@ -1027,11 +1039,12 @@ struct AboutView: View {
                     
                     // About SWAdjective Section
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("About SWAdjective")
+                        Text("About SW-Adjective")
                             .font(.title2)
                             .fontWeight(.bold)
+                            .foregroundColor(.appRed)
                         
-                        Text("SWAdjective is a Swedish adjective practice app designed to help you master Swedish adjectives with ease. Practice adjective agreement (En, Ett, and Plural forms), comparison (positive, comparative, superlative - e.g. better, bigger, best), and antonyms. Complete practice sessions with multiple-choice questions, track your progress through session summaries and history, and use optional text-to-speech for pronunciation. Set daily reminders to keep your practice consistent and build your Swedish adjective skills systematically.")
+                        Text("SW-Adjective is a Swedish adjective practice app designed to help you master Swedish adjectives with ease. Practice adjective agreement (En, Ett, and Plural forms), comparison (positive, comparative, superlative - e.g. better, bigger, best), and antonyms. Complete practice sessions with multiple-choice questions, track your progress through session summaries and history, and use optional text-to-speech for pronunciation. Set daily reminders to keep your practice consistent and build your Swedish adjective skills systematically.")
                             .font(.body)
                             .multilineTextAlignment(.leading)
                     }
@@ -1044,6 +1057,7 @@ struct AboutView: View {
                         Text("About ABASHELARI")
                             .font(.title2)
                             .fontWeight(.bold)
+                            .foregroundColor(.appRed)
                         
                         Text("At ABASHELARI, we believe in creating software that makes everyday life simpler, smarter, and more enjoyable. Our mission is to develop innovative digital solutions that blend creativity with technology, offering users tools that are intuitive, reliable, and engaging.")
                             .font(.body)
@@ -1067,6 +1081,7 @@ struct AboutView: View {
                     Text("About")
                         .font(.headline)
                         .fontWeight(.semibold)
+                        .foregroundColor(.appRed)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
